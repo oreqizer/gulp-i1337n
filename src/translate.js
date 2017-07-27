@@ -1,16 +1,16 @@
-const babylon = require("babylon");
-const traverse = require("babel-traverse").default;
-const generate = require("babel-generator").default;
-const t = require("babel-types");
-const gutil = require("gulp-util");
+var babylon = require("babylon");
+var traverse = require("babel-traverse").default;
+var generate = require("babel-generator").default;
+var t = require("babel-types");
+var gutil = require("gulp-util");
 
-const PluginError = gutil.PluginError;
+var PluginError = gutil.PluginError;
 
 function translate(code, translations, options) {
-  const oFunc = options.func || "__";
-  const oStrict = Boolean(options.strict);
+  var oFunc = options.func || "__";
+  var oStrict = Boolean(options.strict);
 
-  const ast = babylon.parse(code);
+  var ast = babylon.parse(code);
 
   traverse(ast, {
     enter: function enter(path) {
@@ -22,12 +22,12 @@ function translate(code, translations, options) {
           );
         }
 
-        const key = path.node.arguments[0].value;
-        const maybeValue = translations[key];
+        var key = path.node.arguments[0].value;
+        var maybeValue = translations[key];
         if (oStrict && !maybeValue) {
           throw new PluginError(
             "gulp-i1337n",
-            `Missing translation in strict mode for key: ${key}`
+            "Missing translation in strict mode for key: " + key
           );
         }
 
@@ -35,10 +35,10 @@ function translate(code, translations, options) {
           throw new PluginError("gulp-i1337n", "Translation value must be a string");
         }
 
-        const value = maybeValue || key;
+        var value = maybeValue || key;
         path.replaceWith(t.stringLiteral(value));
       }
-    },
+    }
   });
 
   return generate(ast, {}, code);

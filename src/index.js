@@ -1,29 +1,32 @@
-const through = require("through2");
-const gutil = require("gulp-util");
+var through = require("through2");
+var gutil = require("gulp-util");
 
-const translate = require("./translate");
+var translate = require("./translate");
 
-const PluginError = gutil.PluginError;
+var PluginError = gutil.PluginError;
 
 function gulpI1337n(translations, options) {
-  const oOptions = options || {};
+  var oOptions = options || {};
 
-  if (typeof translations === "object") {
+  if (typeof translations !== "object") {
     throw new PluginError("gulp-i1337n", "Translations must be an object");
   }
 
-  return through.obj((file, encoding, cb) => {
+  return through.obj(function throughObj(file, encoding, cb) {
     if (file.isNull()) {
-      return cb(null, file);
-    }
-
-    if (file.isBuffer()) {
-      // TODO
+      cb(null, file);
+      return;
     }
 
     if (file.isStream()) {
-      // TODO
+      cb(new gutil.PluginError("gulp-i1337n", "Streams not supported"), null);
+      return;
     }
+
+    var res = translate(file.contents.toString(), translations, oOptions);
+
+    // eslint-disable-next-line no-param-reassign
+    file.contents = new Buffer(res.code);
 
     cb(null, file);
   });

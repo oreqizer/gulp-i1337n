@@ -1,9 +1,9 @@
 {
   "plugins": ["prettier"],
-  "extends": ["airbnb-base", "prettier"],
+  "extends": ["airbnb-base/legacy", "prettier"],
   "rules": {
+    "vars-on-top": "off",
     "prettier/prettier": ["error", {
-      "trailingComma": "es5",
       "printWidth": 100
     }]
   }
