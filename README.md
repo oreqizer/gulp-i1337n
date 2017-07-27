@@ -13,7 +13,7 @@ A [gulp](https://gulpjs.com/) plugin for static translations. Uses [babylon](htt
 yarn add gulp-i1337n --dev
 ```
 
-### Usage
+## Usage
 
 ```js
 const gulp = require('gulp');
@@ -41,9 +41,21 @@ function greet() {
 }
 ```
 
-### API
+## API
 
-> TODO
+Simply _pipe_ the package's export.
+
+### i1337n(translations[, options])
+
+**translations**
+
+Your object of translations. Keys are replaced with values. Value *must* be a string.
+
+**options** (optional)
+
+Two properties:
+* `func` - the function name to search for, default `__`
+* `strict` - should the plugin fail on missing translation
 
 ## License
 
