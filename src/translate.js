@@ -10,7 +10,9 @@ function translate(code, translations, options) {
   var oFunc = options.func || "__";
   var oStrict = Boolean(options.strict);
 
-  var ast = babylon.parse(code);
+  var ast = babylon.parse(code, {
+    plugins: ["jsx", "flow"]
+  });
 
   traverse(ast, {
     enter: function enter(path) {
@@ -31,7 +33,7 @@ function translate(code, translations, options) {
           );
         }
 
-        if (typeof maybeValue !== "string") {
+        if (maybeValue && typeof maybeValue !== "string") {
           throw new PluginError("gulp-i1337n", "Translation value must be a string");
         }
 
