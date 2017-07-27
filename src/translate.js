@@ -26,14 +26,14 @@ function translate(code, translations, options) {
 
         var key = path.node.arguments[0].value;
         var maybeValue = translations[key];
-        if (oStrict && !maybeValue) {
+        if (oStrict && !(key in translations)) {
           throw new PluginError(
             "gulp-i1337n",
             "Missing translation in strict mode for key: " + key
           );
         }
 
-        if (maybeValue && typeof maybeValue !== "string") {
+        if (typeof maybeValue !== "string") {
           throw new PluginError("gulp-i1337n", "Translation value must be a string");
         }
 
