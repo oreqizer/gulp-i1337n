@@ -1,6 +1,7 @@
 # gulp-i1337n
 
 [![Build Status](https://travis-ci.org/oreqizer/gulp-i1337n.svg?branch=master)](https://travis-ci.org/oreqizer/gulp-i1337n)
+[![codecov](https://codecov.io/gh/oreqizer/gulp-i1337n/branch/master/graph/badge.svg)](https://codecov.io/gh/oreqizer/gulp-i1337n)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![npm (scoped)](https://img.shields.io/npm/v/gulp-i1337n.svg)](https://www.npmjs.com/package/gulp-i1337n)
 
