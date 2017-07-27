@@ -54,8 +54,8 @@ Your object of translations. Keys are replaced with values. Value *must* be a st
 **options** (optional)
 
 Two properties:
-* `func` - the function name to search for, default `__`
-* `strict` - should the plugin fail on missing translation
+* `func` (_string_) - the function name to search for, default `__`
+* `strict` (_boolean_) - should the plugin fail on missing translation
 
 ## License
 
