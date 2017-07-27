@@ -1,6 +1,6 @@
 {
   "name": "gulp-i1337n",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Static i18n for Gulp! :fire:",
   "main": "src/index.js",
   "scripts": {
