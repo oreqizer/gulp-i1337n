@@ -36,7 +36,7 @@ function greet() {
 }
 ```
 
-into this:
+Into this:
 ```js
 function greet() {
   console.log('World!');
