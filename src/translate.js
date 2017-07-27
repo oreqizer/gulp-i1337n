@@ -25,19 +25,20 @@ function translate(code, translations, options) {
         }
 
         var key = path.node.arguments[0].value;
-        var maybeValue = translations[key];
-        if (oStrict && !(key in translations)) {
+        var hasKey = key in translations;
+        if (oStrict && !hasKey) {
           throw new PluginError(
             "gulp-i1337n",
             "Missing translation in strict mode for key: " + key
           );
         }
 
-        if (typeof maybeValue !== "string") {
+        var maybeValue = translations[key];
+        if (hasKey && typeof maybeValue !== "string") {
           throw new PluginError("gulp-i1337n", "Translation value must be a string");
         }
 
-        var value = maybeValue || key;
+        var value = hasKey ? maybeValue : key;
         path.replaceWith(t.stringLiteral(value));
       }
     }

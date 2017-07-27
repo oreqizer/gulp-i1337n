@@ -19,6 +19,19 @@ test("translate - custom func", t => {
   t.end();
 });
 
+test("translate - no value", t => {
+  const res = translate("__('kek');", {}, {}).code;
+
+  t.ok(eval(res), "kek", "key was lost");
+  t.end();
+});
+
+test("translate - bad input", t => {
+  t.throws(() => translate("__(1337);", {}, {}), /1 argument/);
+  t.throws(() => translate("__('kek', 'bur');", {}, {}), /1 argument/);
+  t.end();
+});
+
 test("translate - strict", t => {
   t.throws(() => translate("__('kek');", {}, { strict: true }), /Missing translation/);
   t.end();
