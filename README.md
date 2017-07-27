@@ -15,7 +15,7 @@ yarn add gulp-i1337n --dev
 
 ## Usage
 
-Replaces calls of a given function (default `__`) with a string from the given translations object.
+Replaces calls of a function (default `__`) with a string from the given translations object.
 
 ```js
 const gulp = require('gulp');
