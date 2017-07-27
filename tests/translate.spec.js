@@ -1,6 +1,6 @@
 const test = require("tape");
 
-const translate = require("../lib/translate").translate;
+const translate = require("../src/translate");
 
 const code = `
   function asd() {
@@ -30,5 +30,10 @@ test("translate - custom func", t => {
 
 test("translate - strict", t => {
   t.throws(() => translate(code, {}, { strict: true }), /missing translation/);
+  t.end();
+});
+
+test("translate - bad value", t => {
+  t.throws(() => translate(code, { kek: null }, {}), /a string/);
   t.end();
 });

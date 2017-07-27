@@ -2,7 +2,7 @@
   "name": "gulp-i1337n",
   "version": "0.0.0",
   "description": "Static i18n for Gulp! :fire:",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "tape tests/*.spec.js"
   },
@@ -24,7 +24,9 @@
     "babel-generator": "^6.25.0",
     "babel-traverse": "^6.25.0",
     "babel-types": "^6.25.0",
-    "babylon": "^6.17.4"
+    "babylon": "^6.17.4",
+    "gulp-util": "^3.0.8",
+    "through2": "^2.0.3"
   },
   "devDependencies": {
     "eslint": "^4.3.0",
